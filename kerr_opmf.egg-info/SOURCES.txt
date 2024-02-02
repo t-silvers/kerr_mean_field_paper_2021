@@ -1,0 +1,7 @@
+README.md
+setup.py
+kerr_opmf.egg-info/PKG-INFO
+kerr_opmf.egg-info/SOURCES.txt
+kerr_opmf.egg-info/dependency_links.txt
+kerr_opmf.egg-info/requires.txt
+kerr_opmf.egg-info/top_level.txt
