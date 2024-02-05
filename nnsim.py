@@ -20,7 +20,9 @@ class NNSim:
         time_state = np.zeros(self.num_replicates)
         cpgs_traj = [self.cpgs.copy()]
         time_traj = [time_state.copy()]
+        # TODO: Interval sampling not implemented
 
+        # TODO: `.any()` condition means some replicates will overshoot stopping condition
         while np.any(time_state < timespan[1]):
             reaction_mask, neighbors_left, neighbors_right = self._create_reaction_mask()
 
@@ -59,9 +61,11 @@ class NNSim:
         return reaction_mask, neighbors_left, neighbors_right
 
     def _initialize_cpgs(self):
+        # TODO: Replicate RVs, but not replicates of one realization
         cpgs_init = self.rng.multinomial(
             1, np.ones(3)/3, size=(self.num_sites, self.num_replicates)
         ).argmax(axis=2)
+        
         return cpgs_init
 
     def _select_reactions(self, propensity_bysite, possible_rxns):
@@ -70,6 +74,8 @@ class NNSim:
         reactions = []
         for i, site in enumerate(sites):
             probs = possible_rxns[:, site, i] / possible_rxns[:, site, i].sum()
+            # TODO: Repeating weighted sampling here not efficient nor 'correct'
             rxn_id = self.rng.choice(self.rxn_ids, p=probs)
             reactions.append(rxn_id)
+        
         return sites, reactions
