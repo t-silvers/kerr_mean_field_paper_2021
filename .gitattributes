@@ -1,0 +1,22 @@
+# Basic .gitattributes for a Mathematica repo.
+# From https://github.com/gitattributes/gitattributes/blob/6254cbbe9d8b9d7b6c719a2f57c69969a3aab476/Mathematica.gitattributes
+
+*.wls linguist-detectable=true
+# *.wls linguist-language=mathematica
+
+# Source files
+# Caution: *.m also matches Matlab files.
+# ============
+*.nb             text diff=mathematica
+*.wls            text diff=mathematica
+*.wl             text diff=mathematica
+*.m              text diff=mathematica
+
+# Test files
+# ==========
+*.wlt            text diff=mathematica
+*.mt             text diff=mathematica
+
+# Binary files
+# ============
+*.mx             binary
