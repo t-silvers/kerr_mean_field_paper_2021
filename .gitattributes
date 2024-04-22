@@ -2,7 +2,7 @@
 # From https://github.com/gitattributes/gitattributes/blob/6254cbbe9d8b9d7b6c719a2f57c69969a3aab476/Mathematica.gitattributes
 
 *.wls linguist-detectable=true
-*.wls linguist-language=mathematica
+*.wls linguist-language=Mathematica
 
 # Source files
 # Caution: *.m also matches Matlab files.
